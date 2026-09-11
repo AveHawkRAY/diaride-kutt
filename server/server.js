@@ -87,6 +87,24 @@ app.get("*", renders.notFound);
 // handle errors coming from above routes
 app.use(helpers.error);
   
-app.listen(env.PORT, () => {
-  console.log(`> Ready on http://localhost:${env.PORT}`);
+async function start() {
+  const knex = require("knex");
+  const config = require("../knexfile");
+  const db = knex(config);
+
+  try {
+    await db.migrate.latest();
+    console.log("Database migrations completed");
+  } finally {
+    await db.destroy();
+  }
+
+  app.listen(env.PORT, () => {
+    console.log(`> Ready on http://localhost:${env.PORT}`);
+  });
+}
+
+start().catch(error => {
+  console.error(error);
+  process.exit(1);
 });
