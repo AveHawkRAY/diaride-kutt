@@ -1,6 +1,23 @@
 {{> header}}
-{{> shortener}}
 {{#if user}}
+  <section class="dashboard-hero">
+    <div>
+      <p class="eyebrow">go.diaride.com</p>
+      <h1>DIA Ride Links</h1>
+      <p>Create and manage branded short links for DIA Ride.</p>
+    </div>
+  </section>
+  {{> shortener}}
   {{> links/table}}
+{{else}}
+  <section class="public-hero">
+    <div>
+      <p class="eyebrow">DIA Ride internal tool</p>
+      <h1>DIA Ride Links</h1>
+      <p>Create and manage branded short links for DIA Ride.</p>
+      <a class="button primary" href="/login" title="Log in">Log in</a>
+    </div>
+  </section>
+  {{> shortener}}
 {{/if}}
 {{> footer}}

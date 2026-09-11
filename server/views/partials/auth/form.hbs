@@ -32,26 +32,6 @@
         <span>{{> icons/spinner}}</span>
         Log in
       </button>
-      {{#unless disallow_registration}}
-        {{#if mail_enabled}}
-          <button 
-            type="button"
-            class="secondary signup" 
-            hx-post="/api/auth/signup" 
-            hx-target="#login-signup" 
-            hx-trigger="click" 
-            hx-indicator="#login-signup" 
-            hx-swap="outerHTML"
-            hx-sync="closest form"
-            hx-on:htmx:before-request="htmx.addClass('#login-signup', 'signup')"
-            hx-on:htmx:after-request="htmx.removeClass('#login-signup', 'signup')"
-          >
-              <span>{{> icons/new_user}}</span>
-              <span>{{> icons/spinner}}</span>
-              Sign up
-          </button>
-        {{/if}}
-      {{/unless}}
     </div>
   {{/unless}}
   {{#if oidc_enabled}}

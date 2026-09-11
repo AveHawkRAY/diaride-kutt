@@ -2,6 +2,16 @@
 {{#if login_disabled}}
   {{> auth/login_disabled}}
 {{else}}
-  {{> auth/form}}
+  <section class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <img src="/images/logo.png" alt="DIA Ride" width="34" height="34" />
+        <span>DIA Ride Links</span>
+      </div>
+      <h1>Welcome back</h1>
+      <p>Sign in to manage DIA Ride short links.</p>
+      {{> auth/form}}
+    </div>
+  </section>
 {{/if}}
 {{> footer}}

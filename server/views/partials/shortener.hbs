@@ -21,7 +21,7 @@
       </h1>
     {{/if}}
     {{#unless link}}
-        <h1>Cut your links <span>shorter</span>.</h1>
+        <h1>Create a branded DIA Ride short link.</h1>
     {{/unless}}
   </div>
   <form 
@@ -61,7 +61,7 @@
         hx-on:change="htmx.toggleClass('#advanced-options', 'hidden')"
         {{#if show_advanced}}checked="true"{{/if}}
       />
-      Show advanced options
+      Advanced link options
     </label>
     <section id="advanced-options" class="{{#unless show_advanced}}hidden{{/unless}}">
       <div class="advanced-input-wrapper">
